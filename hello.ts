@@ -8,8 +8,9 @@ async function hello(num: number): Promise<void> {
 }
 
 async function main() {
+  hello(await myPromise(false));
   hello(await myPromise(false).then(x => x * 2));
-  hello(await myPromise(true).then(x => x * 2).catch(error => {
+  hello(await myPromise(true).then(x => x * 3).catch(error => {
     console.error(error)
     return 0;
   }));
